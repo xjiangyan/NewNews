@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\vpi__dark_theme.xml",
+        "source": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\src\\main\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\vpi__light_theme.xml",
+        "source": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\src\\main\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "E:\\Androidstudio\\code\\NewNews\\ViewPageIndicator-library\\build\\intermediates\\res\\merged\\release\\color\\abc_tint_default.xml",
+        "source": "C:\\Users\\hp\\.android\\build-cache\\44c0a5b342a74777f608525862b6fd91af0f289b\\output\\res\\color\\abc_tint_default.xml"
+    }
+]
