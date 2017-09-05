@@ -48,6 +48,7 @@ public class Splash_Activity extends AppCompatActivity {
         ImageView mImageView;
         for (int i = 0; i < mDrawables.length; i++) {
             mImageView = new ImageView(this);
+            mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             mImageView.setImageResource(mDrawables[i]);
             mList.add(mImageView);
         }
@@ -64,12 +65,12 @@ public class Splash_Activity extends AppCompatActivity {
             public void onPageSelected(int position) {
 
                 for (int i = 0; i < imagedos.length; i++) {
-                    if (i == position % mDrawables.length) {
+                    if (i == position) {
                         imagedos[i].setBackgroundResource(R.drawable.dot_selected);
                     } else {
                         imagedos[i].setBackgroundResource(R.drawable.dot_unselected);
                     }
-                    if (position % mDrawables.length == mDrawables.length - 1) {
+                    if (position == mDrawables.length - 1) {
                         mBtn_fotostart.setVisibility(View.VISIBLE);
                     } else {
                         mBtn_fotostart.setVisibility(View.INVISIBLE);
@@ -99,13 +100,13 @@ public class Splash_Activity extends AppCompatActivity {
     private class MyPagerAdapter extends PagerAdapter {
         @Override
         public int getCount() {
-            return mDrawables.length * 1000;
+            return mDrawables.length;
         }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(mList.get(position % mDrawables.length));
-            return mList.get(position % mDrawables.length);
+            container.addView(mList.get(position));
+            return mList.get(position);
         }
 
         @Override
@@ -116,7 +117,7 @@ public class Splash_Activity extends AppCompatActivity {
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(mList.get(position % mDrawables.length));
+            container.removeView(mList.get(position));
             //  super.destroyItem(container, position, object);
         }
     }

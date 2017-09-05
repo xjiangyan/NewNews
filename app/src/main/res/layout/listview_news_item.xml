@@ -4,12 +4,16 @@
                 android:layout_height="match_parent"
     >
 
-    <com.loopj.android.image.SmartImageView
+    <!--<com.loopj.android.image.SmartImageView-->
+    <!--android:id="@+id/smartiv_news_image"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:src="@drawable/p8"/>-->
+    <ImageView
         android:id="@+id/smartiv_news_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/p8"/>
-
 
     <TextView
         android:id="@+id/tv_title"

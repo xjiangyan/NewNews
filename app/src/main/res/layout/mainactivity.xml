@@ -16,37 +16,54 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"></View>
 
-    <RadioGroup
-        android:id="@+id/rg_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-        <RadioButton
-            android:id="@+id/rb_home"
-            style="@style/MainButtonStyle"
-            android:drawableTop="@drawable/home_button_selector"
-            android:text="首页"/>
+        <RadioGroup
+            android:id="@+id/rg_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/rb_recommend"
-            style="@style/MainButtonStyle"
-            android:drawableTop="@drawable/type_button_selector"
-            android:text="热门"/>
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/MainButtonStyle"
+                android:drawableTop="@drawable/home_button_selector"
+                android:text="首页"/>
 
-        <RadioButton
-            android:id="@+id/rb_video"
-            style="@style/MainButtonStyle"
-            android:drawableTop="@drawable/community_button_selector"
-            android:paddingTop="10dp"
-            android:text="视频"/>
+            <RadioButton
+                android:id="@+id/rb_recommend"
+                style="@style/MainButtonStyle"
+                android:drawableTop="@drawable/type_button_selector"
+                android:text="热门"/>
+
+            <RadioButton
+                android:id="@+id/rb_video"
+                style="@style/MainButtonStyle"
+                android:drawableTop="@drawable/community_button_selector"
+                android:paddingTop="10dp"
+                android:text="视频"/>
 
 
-        <RadioButton
-            android:id="@+id/rb_user"
-            style="@style/MainButtonStyle"
-            android:drawableTop="@drawable/user_button_selector"
-            android:text="个人中心"/>
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/rb_user"
+                style="@style/MainButtonStyle"
+                android:drawableTop="@drawable/user_button_selector"
+                android:text="个人中心"/>
+
+
+        </RadioGroup>
+
+        <!--<android.support.design.widget.CoordinatorLayout-->
+            <!--android:id="@+id/corrdiantorlayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--&gt;-->
+
+        <!--</android.support.design.widget.CoordinatorLayout>-->
+    <!--</RelativeLayout>-->
+
 </LinearLayout>

@@ -4,17 +4,16 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
-import org.xutils.common.util.MD5;
 
 import java.util.Arrays;
 import java.util.List;
 
 import newnews.huiiuh.com.newnews.Activity.LoginAndRegister;
+import newnews.huiiuh.com.newnews.Activity.UserInfo_Activity;
 import newnews.huiiuh.com.newnews.Base.Base_Fragment;
 import newnews.huiiuh.com.newnews.R;
 import newnews.huiiuh.com.newnews.Util.CircleImageView;
@@ -32,6 +31,9 @@ public class Fragment_User extends Base_Fragment implements View.OnClickListener
     private TextView guanzhu;
     private TextView fensi;
     private TextView yuedu;
+    private RelativeLayout Relative_lixian;
+    private TextView tv_lixian;
+    private boolean mIslixian;
 
     @Override
     public View initView() {
@@ -44,11 +46,20 @@ public class Fragment_User extends Base_Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
+        String imageresouse = null;
         if (SpUtil.getBooelan(mContext, "islogined", false)) {
-            butSlidelogin.setVisibility(View.GONE);
-            imageUserimage.setVisibility(View.VISIBLE);
-            teUsername.setVisibility(View.VISIBLE);
-            String imageresouse = SpUtil.getString(mContext, "imageresouse", "");
+            if(SpUtil.getBooelan(getContext(),"qqdenglu",false)){
+                butSlidelogin.setVisibility(View.GONE);
+                imageUserimage.setVisibility(View.VISIBLE);
+                teUsername.setVisibility(View.VISIBLE);
+                 imageresouse = SpUtil.getString(mContext, "imageresouse", "");
+            }else if(SpUtil.getBooelan(getContext(),"huanxindenglu",false)){
+                butSlidelogin.setVisibility(View.GONE);
+                imageUserimage.setVisibility(View.VISIBLE);
+                teUsername.setVisibility(View.VISIBLE);
+                 imageresouse ="";
+            }
+
             if (imageresouse == "") {
                 imageUserimage.setImageResource(R.drawable.hugh);
             } else {
@@ -86,18 +97,27 @@ public class Fragment_User extends Base_Fragment implements View.OnClickListener
         butSlidelogin = (Button) view.findViewById(R.id.but_slidelogin);
         imageUserimage = (CircleImageView) view.findViewById(R.id.image_userimage);
         teUsername = (TextView) view.findViewById(R.id.te_username);
-        guanzhu = (TextView) view.findViewById(R.id.tv_gaunzhu);
+        guanzhu = (TextView) view.findViewById(R.id.tv_guanzhu);
         fensi = (TextView) view.findViewById(R.id.tv_fensi);
         yuedu = (TextView) view.findViewById(R.id.yuedu);
+        Relative_lixian = (RelativeLayout) view.findViewById(R.id.relative_lixian);
+        tv_lixian = (TextView) view.findViewById(R.id.tv_lixian);
 
-
-        String md5 = MD5.md5("5555");
-        Toast.makeText(mContext, "md5加密" + md5, Toast.LENGTH_SHORT).show();
+        mIslixian = SpUtil.getBooelan(getContext(), "islixian", false);
+        if (mIslixian) {
+            tv_lixian.setText("开");
+        } else {
+            tv_lixian.setText("关");
+        }
+        //
+        //        String md5 = MD5.md5("5555");
+        //        Toast.makeText(mContext, "md5加密" + md5, Toast.LENGTH_SHORT).show();
         butSlidelogin.setOnClickListener(this);
         imageUserimage.setOnClickListener(this);
         guanzhu.setOnClickListener(this);
         fensi.setOnClickListener(this);
         yuedu.setOnClickListener(this);
+        Relative_lixian.setOnClickListener(this);
     }
 
 
@@ -109,18 +129,30 @@ public class Fragment_User extends Base_Fragment implements View.OnClickListener
                 startActivity(intent);
                 break;
             case R.id.image_userimage:
+                Intent intent2 = new Intent(getActivity(), UserInfo_Activity.class);
+                startActivity(intent2);
                 break;
             case R.id.te_username:
                 break;
-            case R.id.tv_gaunzhu:
+            case R.id.tv_guanzhu:
                 break;
             case R.id.tv_fensi:
                 break;
             case R.id.yuedu:
                 break;
+            case R.id.relative_lixian:
+                if (mIslixian) {
 
+                    tv_lixian.setText("关");
+                    SpUtil.putBooelan(getContext(), "islixian", false);
+                    mIslixian = false;
+                } else {
+                    tv_lixian.setText("开");
+                    SpUtil.putBooelan(getContext(), "islixian", true);
+                    mIslixian = true;
+                }
+                break;
         }
     }
-
 
 }

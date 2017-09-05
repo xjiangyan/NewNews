@@ -18,28 +18,38 @@
 
         android:text="正文字号"
         android:textColor="@android:color/black"/>
+
     <View
-        android:layout_marginTop="3dp"
-        android:layout_below="@id/changetextsize"
+        android:id="@+id/divier"
         android:layout_width="145dp"
         android:layout_height="1dp"
-        android:id="@+id/divier"
+        android:layout_below="@id/changetextsize"
         android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
         android:background="#f9eded"
         ></View>
+
     <TextView
         android:id="@+id/share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/divier"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:drawableLeft="@drawable/icon_share"
         android:drawablePadding="42dp"
         android:gravity="center"
         android:text="分享"
         android:textColor="@android:color/black"/>
-
+    <View
+        android:id="@+id/divier2"
+        android:layout_width="145dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/share"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="5dp"
+        android:background="#f9eded"
+        ></View>
 </RelativeLayout>

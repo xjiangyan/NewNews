@@ -2,12 +2,16 @@ package newnews.huiiuh.com.newnews.Activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -19,6 +23,9 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
 import newnews.huiiuh.com.newnews.R;
@@ -44,6 +51,22 @@ public class WebView_activity extends Activity implements View.OnClickListener {
     private ImageView mIcon_share;
     private ImageView mWritemessage;
     private ImageView mStar;
+
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mNews_load_progress.setVisibility(View.GONE);
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,13 +120,13 @@ public class WebView_activity extends Activity implements View.OnClickListener {
 
                 break;
             case R.id.star:
-                if(mStar.isSelected()){
+                if (mStar.isSelected()) {
                     mStar.setSelected(false);
 
-                Toast.makeText(this, "取消收藏", Toast.LENGTH_SHORT).show();
-                }else if(!mStar.isSelected()){
+                    Toast.makeText(this, "取消收藏", Toast.LENGTH_SHORT).show();
+                } else if (!mStar.isSelected()) {
                     mStar.setSelected(true);
-                Toast.makeText(this, "已收藏", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "已收藏", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.writemessage:
@@ -220,36 +243,36 @@ public class WebView_activity extends Activity implements View.OnClickListener {
     }
 
 
-//    // 注入js函数监听
-//    private void addImageClickListner() {
-//        // 这段js函数的功能就是，遍历承有的img几点，并添加onclick函数，函数的功能是在图片点击的时候调用本地java接口并传递url过去
-//        mWebView.loadUrl("javascript:(function(){"
-//                + "var objs = document.getElementsByTagName(\"img\"); "
-//                + "for(var i=0;i<objs.length;i++)  " + "{"
-//                + "    objs[i].onclick=function()  " + "    {  "
-//                + "        window.imagelistner.openImage(this.src);  "
-//                + "    }  " + "}" + "})()");
-//    }
-//
-//    // js通信接口
-//    public class JavascriptInterface {
-//
-//        private Context context;
-//
-//        public JavascriptInterface(Context context) {
-//            this.context = context;
-//        }
-//
-//        public void openImage(String img) {
-//            System.out.println(img);
-//            //
-//            Intent intent = new Intent();
-//            intent.putExtra("image", img);
-//            intent.setClass(context, ShowWebImageActivity.class);
-//            context.startActivity(intent);
-//            System.out.println(img);
-//        }
-//    }
+    //    // 注入js函数监听
+    //    private void addImageClickListner() {
+    //        // 这段js函数的功能就是，遍历承有的img几点，并添加onclick函数，函数的功能是在图片点击的时候调用本地java接口并传递url过去
+    //        mWebView.loadUrl("javascript:(function(){"
+    //                + "var objs = document.getElementsByTagName(\"img\"); "
+    //                + "for(var i=0;i<objs.length;i++)  " + "{"
+    //                + "    objs[i].onclick=function()  " + "    {  "
+    //                + "        window.imagelistner.openImage(this.src);  "
+    //                + "    }  " + "}" + "})()");
+    //    }
+    //
+    //    // js通信接口
+    //    public class JavascriptInterface {
+    //
+    //        private Context context;
+    //
+    //        public JavascriptInterface(Context context) {
+    //            this.context = context;
+    //        }
+    //
+    //        public void openImage(String img) {
+    //            System.out.println(img);
+    //            //
+    //            Intent intent = new Intent();
+    //            intent.putExtra("image", img);
+    //            intent.setClass(context, ShowWebImageActivity.class);
+    //            context.startActivity(intent);
+    //            System.out.println(img);
+    //        }
+    //    }
 
     // 监听
     private class MyWebViewClient extends WebViewClient {
@@ -264,7 +287,7 @@ public class WebView_activity extends Activity implements View.OnClickListener {
             mWebView.getSettings().setBuiltInZoomControls(true);//添加缩放按钮
             mWebView.getSettings().setUseWideViewPort(true);//双击放大缩小
             mWebView.getSettings().setJavaScriptEnabled(true);//设置支持js
-            mNews_load_progress.setVisibility(View.GONE);
+            //            mNews_load_progress.setVisibility(View.GONE);
 
         }
 
@@ -274,15 +297,33 @@ public class WebView_activity extends Activity implements View.OnClickListener {
             num = SpUtil.getInt(getApplicationContext(), "textsize", 100);
             mWebView.getSettings().setTextZoom(num);
 
+            ConnectivityManager connectivity = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            boolean wifi = connectivity.getNetworkInfo(
+                    ConnectivityManager.TYPE_WIFI).isConnected();
+            boolean network = connectivity.getNetworkInfo(
+                    ConnectivityManager.TYPE_MOBILE).isConnected();
+            if (wifi || network) {
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        Message msg = Message.obtain();
+                        msg.what = 1;
+                        mHandler.sendMessage(msg);
+                    }
+                }, 1000);
+            }
+
+
             super.onPageStarted(view, url, favicon);
         }
 
-//        @Override
-//        public void onReceivedError(WebView view, int errorCode,
-//                                    String description, String failingUrl) {
-//
-//            super.onReceivedError(view, errorCode, description, failingUrl);
-//
-//        }
+        //        @Override
+        //        public void onReceivedError(WebView view, int errorCode,
+        //                                    String description, String failingUrl) {
+        //
+        //            super.onReceivedError(view, errorCode, description, failingUrl);
+        //
+        //        }
     }
 }

@@ -75,8 +75,8 @@ public class LoginAndRegister extends Activity implements OnClickListener {
                                 true);
                         String imageresouse = response
                                 .getString("figureurl_qq_2");
-//                        Toast.makeText(getApplicationContext(),
-//                                imageresouse, Toast.LENGTH_LONG).show();
+                        //                        Toast.makeText(getApplicationContext(),
+                        //                                imageresouse, Toast.LENGTH_LONG).show();
                         SpUtil.putString(getApplicationContext(), "imageresouse",
                                 imageresouse);
                         Log.d(TAG, "图片地址为：" + imageresouse);
@@ -123,7 +123,7 @@ public class LoginAndRegister extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_qq:
-                Toast.makeText(getApplicationContext(), "qq登录", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "qq登录", Toast.LENGTH_SHORT).show();
 
                 login_qq();
                 break;
@@ -153,8 +153,10 @@ public class LoginAndRegister extends Activity implements OnClickListener {
                     });
                     SpUtil.putBooelan(LoginAndRegister.this, "islogined", true);
                     SpUtil.putString(LoginAndRegister.this, "nickname", username.getText().toString());
+                    SpUtil.putBooelan(LoginAndRegister.this, "huanxindenglu", true);
                     Intent intent = new Intent(LoginAndRegister.this, MainActivity.class);
                     startActivity(intent);
+                    EMClient.getInstance().logout(true);
                     finish();
                 }
 
@@ -163,7 +165,7 @@ public class LoginAndRegister extends Activity implements OnClickListener {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(LoginAndRegister.this, "登录失败", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginAndRegister.this, "登录失败,用户名或密码不正确", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -205,6 +207,11 @@ public class LoginAndRegister extends Activity implements OnClickListener {
         }).start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
+    }
 
     private void login_qq() {
         // TODO Auto-generated method stub
@@ -272,33 +279,33 @@ public class LoginAndRegister extends Activity implements OnClickListener {
                      * 由于图片需要下载所以这里使用了线程，如果是想获得其他文字信息直接 在mHandler里进行操作
                      *
                      */
-//                    new Thread() {
-//
-//                        @Override
-//                        public void run() {
-//                            // TODO Auto-generated method stub
-//                            JSONObject json = (JSONObject) response;
-//                            try {
-////                                bitmap = Util.getbitmap(json
-////                                        .getString("figureurl_qq_2"));
-//                                String imageresouse = json
-//                                        .getString("figureurl_qq_2");
-//                                Toast.makeText(getApplicationContext(),
-//                                        imageresouse, Toast.LENGTH_LONG).show();
-//                                // SpUtil.putstring(getApplicationContext(),
-//                                // "userlogo", imageresouse);
-//                            } catch (JSONException e) {
-//                                // TODO Auto-generated catch block
-//                                e.printStackTrace();
-//                            }
-//                            Message msg = new Message();
-//                            msg.obj = bitmap;
-//                            msg.what = 1;
-//                            mHandler.sendMessage(msg);
-//                        }
-//                    }.start();
+                    //                    new Thread() {
+                    //
+                    //                        @Override
+                    //                        public void run() {
+                    //                            // TODO Auto-generated method stub
+                    //                            JSONObject json = (JSONObject) response;
+                    //                            try {
+                    ////                                bitmap = Util.getbitmap(json
+                    ////                                        .getString("figureurl_qq_2"));
+                    //                                String imageresouse = json
+                    //                                        .getString("figureurl_qq_2");
+                    //                                Toast.makeText(getApplicationContext(),
+                    //                                        imageresouse, Toast.LENGTH_LONG).show();
+                    //                                // SpUtil.putstring(getApplicationContext(),
+                    //                                // "userlogo", imageresouse);
+                    //                            } catch (JSONException e) {
+                    //                                // TODO Auto-generated catch block
+                    //                                e.printStackTrace();
+                    //                            }
+                    //                            Message msg = new Message();
+                    //                            msg.obj = bitmap;
+                    //                            msg.what = 1;
+                    //                            mHandler.sendMessage(msg);
+                    //                        }
+                    //                    }.start();
                     mTencent.logout(getApplicationContext());
-
+                    SpUtil.putBooelan(getApplicationContext(), "qqdenglu", true);
                 }
 
                 public void onCancel() {

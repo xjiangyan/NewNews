@@ -19,6 +19,7 @@ public abstract class Base_Fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
+
     }
 
     @Nullable
@@ -37,4 +38,7 @@ public abstract class Base_Fragment extends Fragment {
 
     public void initData() {
     }
+
+
+
 }

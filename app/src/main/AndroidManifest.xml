@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="newnews.huiiuh.com.newnews">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
 
     <!-- 添加必要的权限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -26,21 +23,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".Activity.Splash_Activity">
-
-        </activity>
-        <activity
-            android:name=".Activity.MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.MainActivity">
 
+
+        </activity>
+        <activity android:name=".Activity.UserInfo_Activity"></activity>
         <activity android:name=".Activity.WebView_activity">
         </activity>
-        <activity android:name=".Activity.UserInfos"></activity>
         <activity android:name=".Activity.LoginAndRegister"></activity>
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -104,14 +100,18 @@
         </activity>
 
 
-
         <!-- 设置环信应用的AppKey -->
-        <meta-data android:name="EASEMOB_APPKEY"  android:value="1195170720178801#huitongxun-20180928" />
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1195170720178801#huitongxun-20180928"/>
         <!-- 声明SDK所需的service SDK核心功能-->
-        <service android:name="com.hyphenate.chat.EMChatService" android:exported="true"/>
-        <service android:name="com.hyphenate.chat.EMJobService"
-                 android:permission="android.permission.BIND_JOB_SERVICE"
-                 android:exported="true"
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true"/>
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             />
         <!-- 声明SDK所需的receiver -->
         <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
@@ -122,7 +122,7 @@
             <!-- 可选filter -->
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.USER_PRESENT"/>
             </intent-filter>
         </receiver>
     </application>

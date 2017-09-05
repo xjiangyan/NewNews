@@ -67,7 +67,7 @@
                 ></View>
 
             <TextView
-                android:id="@+id/tv_gaunzhu"
+                android:id="@+id/tv_guanzhu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -423,7 +423,7 @@
                 >
 
                 <RelativeLayout
-
+                    android:id="@+id/relative_lixian"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -437,12 +437,13 @@
                         android:textSize="18sp"/>
 
                     <TextView
+                        android:id="@+id/tv_lixian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_margin="10dp"
                         android:drawablePadding="5dp"
-                        android:drawableRight="@drawable/home_arrow_right"
+                        android:text="关"
                         android:textSize="15sp"/>
                 </RelativeLayout>
 
